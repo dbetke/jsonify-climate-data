@@ -34,9 +34,22 @@ describe("parse_dly", function () {
         });
 
         describe('parse_dly', function () {
-           it('should do something', function () {
-               //..
-           }); 
+            it('should store the station id', function () {
+                expect(n.meta['station']).toEqual('USC00010008');
+            });
+
+            it('should accurately store the year', function () {
+                expect(n.data[1948]).toEqual(jasmine.any(Object));
+            });
+
+            it('should accurately store the month', function () {
+                expect(n.data[1948][7]).toEqual(jasmine.any(Object));
+            });
+
+            it('should accurately store the element type', function () {
+                expect(n.data[1948][7]['PRCP']).toEqual(jasmine.any(Array));
+            });
+
         });
     });
 });
