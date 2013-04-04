@@ -10,25 +10,27 @@ function generateMonthly(str) {
         month;
     
     for (item in fileArray) {
-        lineItem = fileArray[item].split(',');
-        date = lineItem[0];
-        year = Number(date.substr(0,4));
-        month = Number(date.substr(4));
-        
-        if (!obj[year]) {
-            obj[year] = {};
-        }
+        if (fileArray[item] !== "") {
+            lineItem = fileArray[item].split(',');
+            date = lineItem[0];
+            year = Number(date.substr(0,4));
+            month = Number(date.substr(4));
+            
+            if (!obj[year]) {
+                obj[year] = {};
+            }
 
-        obj[year][month] = [];
+            obj[year][month] = [];
 
-        for (var i = 1; i < lineItem.length; i++) {
-            var value = lineItem[i];
+            for (var i = 1; i < lineItem.length; i++) {
+                var value = lineItem[i];
 
-            if (!isNaN(Number(value))) {
-                value = Number(value);
-            } 
+                if (!isNaN(Number(value))) {
+                    value = Number(value);
+                } 
 
-            obj[year][month].push(value);
+                obj[year][month].push(value);
+            }
         }
     }
 
