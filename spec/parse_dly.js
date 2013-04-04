@@ -50,6 +50,43 @@ describe("parse_dly", function () {
                 expect(n.data[1948][7]['PRCP']).toEqual(jasmine.any(Array));
             });
 
+            it('should accurately store the data object value', function () {
+                expect(n.data[1948][7]['SNWD'][28].value).toEqual(-9999);
+                expect(n.data[1948][9]['PRCP'][3].value).toEqual(1369);
+                expect(n.data[1958][1]['SNOW'][0].value).toEqual(0);
+                expect(n.data[2001][9]['PRCP'][5].value).toEqual(0);
+                expect(n.data[2011][7]['PRCP'][9].value).toEqual(406);
+                expect(n.data[2013][1]['PRCP'][3].value).toEqual(25);
+            });
+
+            it('should accurately store the data object mFlag', function () {
+                expect(n.data[1948][7]['SNWD'][28].mflag).toEqual("");
+                expect(n.data[1948][9]['PRCP'][3].mflag).toEqual("");
+                expect(n.data[1958][1]['SNOW'][0].mflag).toEqual("T");
+                expect(n.data[2001][9]['PRCP'][5].mflag).toEqual("T");
+                expect(n.data[2011][7]['PRCP'][9].mflag).toEqual("");
+                expect(n.data[2013][1]['PRCP'][3].mflag).toEqual("");
+            });
+
+            it('should accurately store the data object qFlag', function () {
+                //there are no q flags in the test file, all are blank
+                expect(n.data[1948][7]['SNWD'][28].qflag).toEqual("");
+                expect(n.data[1948][9]['PRCP'][3].qflag).toEqual("");
+                expect(n.data[1958][1]['SNOW'][0].qflag).toEqual("");
+                expect(n.data[2001][9]['PRCP'][5].qflag).toEqual("");
+                expect(n.data[2011][7]['PRCP'][9].qflag).toEqual("");
+                expect(n.data[2013][1]['PRCP'][3].qflag).toEqual("");
+            });
+
+            it('should accurately store the data object sFlag', function () {
+                expect(n.data[1948][7]['SNWD'][28].sflag).toEqual("");
+                expect(n.data[1948][9]['PRCP'][3].sflag).toEqual("0");
+                expect(n.data[1958][1]['SNOW'][0].sflag).toEqual("0");
+                expect(n.data[2001][9]['PRCP'][5].sflag).toEqual("0");
+                expect(n.data[2011][7]['PRCP'][9].sflag).toEqual("K");
+                expect(n.data[2013][1]['PRCP'][3].sflag).toEqual("H");
+            });
+
         });
     });
 });
