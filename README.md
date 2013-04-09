@@ -41,17 +41,15 @@ The daily object is returned with meta data (the station information) and the va
                           }
                }
                
-The monthly array is returned with objects containing the values.  The format is as follows:
+The monthly object is returned with objects containing the values.  The format is as follows:
                
-    obj = [ 
-            {  
+    obj = {  
               year :  {  
                         month : { 
                                   [ ] //array of integers
                                 }  
                       }
-            }
-          ] //array of objects
+          }
                
     
 Examples
