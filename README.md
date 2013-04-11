@@ -28,17 +28,17 @@ The daily object is returned with meta data (the station information) and the va
                }
                
     obj.data = {  
-                  year :  {  
-                             month : { 
-                                        element : [ 
-                                                    { 'value' :   , //integer
-                                                      'mflag' :   , //string 
-                                                      'qflag' :   , //string 
-                                                      'sflag' :     //string  
-                                                    }  
-                                                  ]  //array of objects
-                                      }
-                          }
+                  element :  {  
+                                year : [ 
+                                            month : [ 
+                                                      { 'value' :   , //integer
+                                                        'mflag' :   , //string 
+                                                        'qflag' :   , //string 
+                                                        'sflag' :     //string  
+                                                      }  
+                                                    ]  //array of objects
+                                        ]
+                            }
                }
                
 The monthly object is returned with objects containing the values.  The format is as follows:
@@ -65,10 +65,10 @@ When parsing the USC00010008.dly stored in the Data directory, these are some ex
 
     //December 1, 2010 precipitation data
     
-    obj.data[2010][12]['PRCP'][0].value //will return 483
-    obj.data[2010][12]['PRCP'][0].mflag //will return ''
-    obj.data[2010][12]['PRCP'][0].qflag //will return ''
-    obj.data[2010][12]['PRCP'][0].sflag //will return K
+    obj.data['PRCP'][2010][11][0].value //will return 483
+    obj.data['PRCP'][2010][11][0].mflag //will return ''
+    obj.data['PRCP'][2010][11][0].qflag //will return ''
+    obj.data['PRCP'][2010][11][0].sflag //will return K
 
 
 <b>Accessing raw monthly data from the .dat files :</b>
