@@ -48,21 +48,6 @@ function parse_dly(str) {
                 dataArray = generateValues(fileArray[item].substr(21));
 
             obj.meta['station'] = station;
-/*
-            if (!obj.data[year]) {
-                obj.data[year] = {};
-            }
-
-            if (!obj.data[year][month]) {
-                obj.data[year][month] = {};
-            }
-
-            if (!obj.data[year][month][element]) {
-                if (dataArray.length !== 0) {
-                    obj.data[year][month][element] = dataArray;
-                }
-            }
-*/
 
             if (obj.data[element] === undefined) {
                 obj.data[element] = {};
@@ -70,6 +55,7 @@ function parse_dly(str) {
             if (obj.data[element][year] === undefined) {
                 obj.data[element][year] = [];
             }
+
             obj.data[element][year][month-1] = dataArray;
 
         }
